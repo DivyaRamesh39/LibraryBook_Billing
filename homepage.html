@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<style>
+ body
+{
+    background-color: skyblue;
+    font-size: 20px;
+}
+
+.container1{
+    background-color: #fff;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgbo(0,0,0,0.3);
+    overflow:hidden;
+    width:600px;
+    max-width:100%;
+    }
+
+#container1 p {
+    
+    margin: 3px 0 1.5em 0;
+   color: #7d7d7d;
+
+}
+
+.header{
+   
+    border-bottom:1px solid #f0f0f0;
+    padding:20px 40px;
+}
+
+.header h1{
+     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    background: url(office1.jpg);
+        
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    
+    margin: 0;
+    }
+
+  h1 {
+     text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  }  
+
+
+.centerit {
+    text-align: center;
+}
+
+.boldit {
+    
+}
+
+.blink {
+        font-weight: bold;
+        color: red;
+        font-size: 24px;
+        animation: blinker 0.6s linear infinite;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: sans-serif;
+      }
+        @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+
+
+
+</style>
+
+<head>
+    <meta chrset="UTF 8">
+    <title>Book details</title>
+</head>
+
+<body>
+
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<h1 class="centerit" > Books details.!!</h1>
+
+
+
+<div  ng-app="DemoApp" ng-controller="DemoController">
+    <div class="header">
+    <center><h1>{{myHeader}}</h1></center>
+    
+    <p  class="blink">Date : {{ today | date }}</p><p class="blink">Time : {{time}}</p>
+    <br>
+    
+    <p>Books Available and price </p>
+    <select ng-model="SortOrder">
+            <option value="+name">Name (asc)</option>
+            <option value="-name">Name (dec)</option>
+            <option value="+phone">Price (asc)</option>
+            <option value="-phone">Price (dec)</option>
+        </select>
+        <ul ng-repeat="person in persons | orderBy:SortOrder">
+            <li>{{person.name}} - {{person.phone}}</li>
+        </ul>
+    <br>
+    <hr>
+   
+
+    <a href="components_library.html" target=_blank> Billing Here</a>
+
+    </div>
+
+
+
+
+<script type="text/javascript">
+    var app = angular.module('DemoApp',[]);
+    app.controller('DemoController',function($scope,$timeout){
+
+        $scope.tutorialName ="Divya";
+          $scope.myArr = ['HarryPotter', 'Think like a monk', 'Everything Everything', 'And then there were none', 'A man called Ove', 'Girl Online'];
+          $scope.persons = [{ name: 'Harrypotter', phone: '500' },
+                         { name: 'Think like a monk', phone: '700' },
+                         { name: 'Everything Everything', phone: '450' },
+                         { name: 'And then there were none', phone: '350' },
+                         { name: 'A man called Ove', phone: '500' },
+                         { name: 'Girl Online', phone: '600' }]
+            
+            $scope.SortOrder = '+name';
+            $scope.amount = 100;
+            $scope.tutorialID =3010.265656;
+             $scope.today = new Date();
+             
+            
+            
+           $scope.time=new Date().toLocaleTimeString();
+
+           $timeout(function () {
+               $scope.myHeader = "Scroll below to see the details";
+            }, 2000);
+            
+            
+    });
+</script>
+
+</body>
+</html>

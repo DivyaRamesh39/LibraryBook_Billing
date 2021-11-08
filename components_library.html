@@ -1,0 +1,121 @@
+<html>
+ <head>
+ 	<style>
+	body{
+		font-size: 20px;
+		
+		background-color: skyblue;
+		background-attachment: fixed;
+		height:100%;
+		background-position: center;
+  		background-repeat: no-repeat;
+  		background-size: cover;
+  		
+
+	}
+	.content-area {
+		border: 1px solid black;
+		margin-top: 10px;
+		padding: 10px;
+		background-image: url(box_bg.jpg);
+		
+		height:100%;
+		background-position: center;
+	  	background-repeat: no-repeat;
+	  	background-size: cover;
+	  	font-size: 20px;
+		color: #000000;
+}
+
+     h3 {
+     	text-align: center;
+     }
+
+     img:hover {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+    
+
+.sample-show-hide {
+  transition: all linear 0.5s;
+}
+.sample-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.blink {
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  51% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+</style>
+
+</head>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <script src="//code.angularjs.org/snapshot/angular-animate.js"></script>
+ <body ng-app="ngAnimate">
+ 	<h3>BOOKS ARE A UNIQUE PORTABLE MAGIC TO CARRY WITH YOU !</h3>
+ 	<h3>BUY MORE BOOKS AT OUR STORE AND IMMERSE YOURSELF IN THE PLEASURE OF BOOK READING</h3><br>
+ 	<center>
+
+ <sript>
+ 	
+ <calculator></calculator>
+
+ </sript>
+
+ <div ng-init="checked = true">
+  <label>
+    <input type="checkbox" ng-model="checked" />
+    Paid 
+  </label>
+  <div class="content-area sample-show-hide" ng-show="checked">
+    <h2 align = "center">Happy reading.!</h2>
+    <h2 align = "center">Check Out similiar Ones.!</h2>
+    <img src="amancalledove.jpg"  class = "blink" width = "200" height = "300"/>
+    <img src="murakamibook.png" class = "blink" width= "260" height = "300" />
+    <img src="everythingeverything.jpg" class = "blink" width = "200" height = "300"/>
+    <img src="twobytwo.png"  class = "blink" width="200" height = "300"/>
+    <img src="preethishenoybook.jpg"  class = "blink" width = "200" height = "300"/>
+    <img src="thinklikeamonk.jpg" class = "blink"  width = "200" height = "300"/>
+
+
+
+  </div>
+</div>
+</center>
+ </body>
+<script>
+angular.module("ngAnimate", []).component("calculator",{
+ template: `First Book Price : <input type="number" ng-model="n1">
+ <br> <br>
+ Second Book Price : <input type="number" ng-model="n2">
+ <br> <br>
+ <p>Amount to pay :{{n1+n2}}</p>
+  `
+
+
+});
+
+//var app = angular.module('myApp', ['ngAnimate']);
+</script>
+
+</html>
